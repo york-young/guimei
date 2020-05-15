@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @Author: York
  * @Date: 2020/5/7 00079:51
  * @Version:1.0
- * @Description: TODO
+ * @Description: 这是eureka02的的启动类
  */
 @SpringBootApplication
 @EnableEurekaServer

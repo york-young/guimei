@@ -78,6 +78,8 @@ public class BrandServiceImpl implements IBrandService {
     @Transactional(rollbackFor = Exception.class)
     public void saveBrand(Brand brand, List<Long> categories) {
         // 新增品牌信息
+        System.out.println(brand);
+        System.out.println(categories);
         this.brandMapper.insertSelective(brand);
         // 新增品牌和分类中间表
         for (Long cid : categories) {

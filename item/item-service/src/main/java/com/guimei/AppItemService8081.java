@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @Author: York
  * @Date: 2020/5/7 000711:08
  * @Version:1.0
- * @Description: TODO
+ * @Description: 这是网关后台商品服务的的启动类
  */
 @SpringBootApplication
 @EnableDiscoveryClient

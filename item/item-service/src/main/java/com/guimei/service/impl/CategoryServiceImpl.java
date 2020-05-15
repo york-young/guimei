@@ -16,7 +16,7 @@ import java.util.List;
  * @Author: York
  * @Date: 2020/5/8 000821:56
  * @Version:1.0
- * @Description: TODO
+ * @Description: 品牌的实现类
  */
 @Service
 public class CategoryServiceImpl implements ICategoryService {
@@ -24,6 +24,14 @@ public class CategoryServiceImpl implements ICategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
 
+    /**
+     * @Description:
+     *             根据ID查找数据信息
+     * @Author: York
+     * @Date: 2020/5/15 0015 9:43
+     * @param pid
+     * @Return: java.util.List<com.guimei.model.Category>
+     **/
     public List<Category> queryCategoryByPid(Long pid) throws MyException {
         Example example = new Example(Category.class);
         example.createCriteria().andEqualTo("parentId",pid);

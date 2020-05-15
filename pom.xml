@@ -10,7 +10,6 @@
     <modules>
         <module>registe-eureka</module>
         <module>gateway</module>
-        <module>goods</module>
         <module>common</module>
         <module>item</module>
         <module>upload</module>
@@ -251,7 +250,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+    <!--<build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -277,7 +276,7 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
     <!--<repositories>
         <repository>

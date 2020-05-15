@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @Author: York
  * @Date: 2020/5/7 00029:55
  * @Version:1.0
- * @Description: TODO
+ * @Description: 这是网关zuul的启动类
  */
 @SpringBootApplication
 @EnableZuulProxy

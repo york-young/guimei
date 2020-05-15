@@ -15,7 +15,7 @@ import java.util.List;
  * @Author: York
  * @Date: 2020/5/9 000915:41
  * @Version:1.0
- * @Description: TODO
+ * @Description: 品牌的控制层代码区
  */
 @RestController
 @RequestMapping("brand")
@@ -41,7 +41,7 @@ public class BrandController {
         return ResponseEntity.ok(result);
     }
     @PostMapping
-    public ResponseEntity<Void> addBrand(Brand brand, @RequestParam("categories")List<Long> categories){
+    public ResponseEntity<Void> addBrand(Brand brand, @RequestParam("cids")List<Long> categories){
         this.brandService.saveBrand(brand, categories);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
