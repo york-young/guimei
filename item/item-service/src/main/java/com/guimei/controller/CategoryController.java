@@ -2,15 +2,12 @@ package com.guimei.controller;
 
 import com.guimei.model.Category;
 
-import com.guimei.service.impl.CategoryServiceImpl;
+import com.guimei.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,12 +22,12 @@ import java.util.List;
 public class CategoryController {
 
     @Autowired
-    private CategoryServiceImpl categoryServiceImpl;
+    private ICategoryService categoryService;
 
 
     /**
      * @Description:
-     *             根据parentId查询类目
+     *             根据parentId查询类目，,以树的形式展示出来，要借助父id
      * @Date: 2020/5/8 0008 22:06
      * @Author: York
      * @param pid
@@ -44,7 +41,7 @@ public class CategoryController {
                 return ResponseEntity.badRequest().build();
             }
             // 执行查询操作
-            List<Category> categoryList = this.categoryServiceImpl.queryCategoryByPid(pid);
+            List<Category> categoryList = this.categoryService.queryCategoryByPid(pid);
             if (CollectionUtils.isEmpty(categoryList)){
                 // 返回结果集为空，响应404
                 return ResponseEntity.notFound().build();
@@ -56,5 +53,121 @@ public class CategoryController {
         }
         // 响应500
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    /**
+     * @Description:
+     *             用于修改品牌信息时，商品分类信息的回显，根据bid查找数据信息
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:04
+     * @param bid
+     * @Return: org.springframework.http.ResponseEntity<java.util.List<com.guimei.model.Category>>
+     **/
+    @GetMapping("bid/{bid}")
+    public ResponseEntity<List<Category>> queryByBrandId(@PathVariable("bid") Long bid){
+        List<Category> list = this.categoryService.queryByBrandId(bid);
+        if(list == null || list.size() < 1){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(list);
+    }
+
+
+
+    /**
+     * @Description:
+     *             添加数据信息
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:10
+     * @param category
+     * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
+     **/
+    @PostMapping
+    public ResponseEntity<Void> saveCategory(Category category){
+        this.categoryService.saveCategory(category);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+
+    /**
+     * @Description:
+     *             更新数据信息
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:11
+     * @param category
+     * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
+     **/
+    @PutMapping
+    public ResponseEntity<Void> updateCategory(Category category){
+        this.categoryService.updateCategory(category);
+        return  ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+    /**
+     * @Description:
+     *             根据id删除数据信息
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:12
+     * @param id
+     * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
+     **/
+    @DeleteMapping("cid/{cid}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable("cid") Long id){
+        this.categoryService.deleteCategory(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    /**
+     * @Description:
+     *             根据分类id集合查询分类名称
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:13
+     * @param ids
+     * @Return: org.springframework.http.ResponseEntity<java.util.List<java.lang.String>>
+     **/
+    @GetMapping("names")
+    public ResponseEntity<List<String>> queryNameByIds(@RequestParam("ids")List<Long> ids){
+        List<String> list = categoryService.queryNameByIds(ids);
+        if (list == null || list.size() < 1){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            return ResponseEntity.ok(list);
+        }
+    }
+
+    /**
+     * @Description:
+     *             根据分类id集合查询分类名称
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:14
+     * @param ids
+     * @Return: org.springframework.http.ResponseEntity<java.util.List<com.guimei.model.Category>>
+     **/
+    @GetMapping("all")
+    public ResponseEntity<List<Category>> queryCategoryByIds(@RequestParam("ids")List<Long> ids){
+        List<Category> list = categoryService.queryCategoryByIds(ids);
+        if (list == null || list.size() < 1){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            return ResponseEntity.ok(list);
+        }
+    }
+
+    /**
+     * @Description:
+     *             根据分类id集合查询分类名称
+     * @Author: York
+     * @Date: 2020/5/18 0018 22:14
+     * @param id
+     * @Return: org.springframework.http.ResponseEntity<java.util.List<com.guimei.model.Category>>
+     **/
+    @GetMapping("all/level/{cid3}")
+    public ResponseEntity<List<Category>> queryAllCategoryLevelByCid3(@PathVariable("cid3")Long id){
+        List<Category> list = categoryService.queryAllCategoryLevelByCid3(id);
+        if (list == null || list.size() < 1){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            return ResponseEntity.ok(list);
+        }
     }
 }

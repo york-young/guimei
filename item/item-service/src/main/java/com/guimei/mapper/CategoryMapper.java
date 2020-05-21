@@ -1,8 +1,55 @@
 package com.guimei.mapper;
 
 import com.guimei.model.Category;
+import org.apache.ibatis.annotations.*;
 import tk.mybatis.mapper.common.Mapper;
 
-@org.apache.ibatis.annotations.Mapper
+import java.util.List;
+
+
 public interface CategoryMapper extends Mapper<Category> {
+
+    /**
+     * @Description:
+     *             根据品牌id查询商品分类
+     * @Author: York
+     * @Date: 2020/5/19 0019 10:06
+     * @param bid
+     * @Return: java.util.List<com.guimei.model.Category>
+     **/
+    @Select("SELECT * FROM tb_category WHERE id IN (SELECT category_id FROM tb_category_brand WHERE brand_id = #{bid}) ")
+    List<Category> queryByBrandId(@Param("bid") Long bid);
+
+    /**
+     * @Description:
+     *             根据category id删除中间表相关数据
+     * @Author: York
+     * @Date: 2020/5/19 0019 10:06
+     * @param cid
+     * @Return: void
+     **/
+    @Delete("DELETE FROM tb_category_brand WHERE category_id = #{cid}")
+    void deleteByCategoryIdInCategoryBrand(@Param("cid") Long cid);
+
+    /**
+     * @Description:
+     *             根据id查名字
+     * @Author: York
+     * @Date: 2020/5/19 0019 10:06
+     * @param id
+     * @Return: java.lang.String
+     **/
+    @Select("SELECT name FROM tb_category WHERE id = #{id}")
+    String queryNameById(Long id);
+
+    /**
+     * @Description:
+     *             查询最后一条数据
+     * @Author: York
+     * @Date: 2020/5/19 0019 10:06
+     * @param
+     * @Return: java.util.List<com.guimei.model.Category>
+     **/
+    @Select("SELECT * FROM `tb_category` WHERE id = (SELECT MAX(id) FROM tb_category)")
+    List<Category> selectLast();
 }

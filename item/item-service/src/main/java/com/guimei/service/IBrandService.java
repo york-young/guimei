@@ -25,4 +25,45 @@ public interface IBrandService {
      * @Return void
      **/
     void saveBrand(Brand brand, List<Long> categories);
+
+    /**
+     * @Description:
+     *             修改商品信息
+     * @Author: York
+     * @Date: 2020/5/15 0015 10:25
+     * @param brand
+     * @param categories
+     * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
+     **/
+    void updateBrand(Brand brand, List<Long> categories);
+
+    /**
+     * @Description:
+     *             根据CategoryId查询商品品牌信息
+     * @Author: York
+     * @Date: 2020/5/15 0015 10:35
+     * @param cid
+     * @Return: org.springframework.http.ResponseEntity<java.util.List<com.guimei.model.Brand>>
+     **/
+    List<Brand> queryBrandByCategoryId(Long cid);
+
+    /**
+     * @Description:
+     *             根据BrandId查询商品品牌信息
+     * @Author: York
+     * @Date: 2020/5/15 0015 10:36
+     * @param ids
+     * @Return: org.springframework.http.ResponseEntity<java.util.List<com.guimei.model.Brand>>
+     **/
+    List<Brand> queryBrandByBrandIds(List<Long> ids);
+
+    /**
+     * @Description:
+     *             删除和批量删除二合一
+     * @Author: York
+     * @Date: 2020/5/15 0015 10:36
+     * @param bid
+     * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
+     **/
+    void deleteBrand(long bid);
 }

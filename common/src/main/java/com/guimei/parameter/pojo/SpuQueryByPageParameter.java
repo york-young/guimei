@@ -19,7 +19,7 @@ public class SpuQueryByPageParameter extends BrandQueryByPageParameter{
     public Boolean getSaleable() {
         return saleable;
     }
-
+    public SpuQueryByPageParameter(){};
     public void setSaleable(Boolean saleable) {
         this.saleable = saleable;
     }

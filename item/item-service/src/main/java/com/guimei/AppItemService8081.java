@@ -13,6 +13,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+@MapperScan("com.guimei.mapper")
 public class AppItemService8081 {
     public static void main(String[] args) {
         SpringApplication.run(AppItemService8081.class,args);

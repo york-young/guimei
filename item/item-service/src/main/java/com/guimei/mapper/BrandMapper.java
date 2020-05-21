@@ -42,4 +42,13 @@ public interface BrandMapper extends Mapper<Brand> {
      **/
     @Select("SELECT b.* FROM tb_brand b LEFT JOIN tb_category_brand cb ON b.id=cb.brand_id WHERE cb.category_id=#{cid}")
     List<Brand> queryBrandByCategoryId(Long cid);
+
+    /**
+     * @param ids
+     * @Description: 根据BrandId查询商品品牌信息
+     * @Author: York
+     * @Date: 2020/5/15 0015 10:36
+     * @Return: org.springframework.http.ResponseEntity<java.util.List < com.guimei.model.Brand>>
+     **/
+    List<Brand> selectByIdList(List<Long> ids);
 }
