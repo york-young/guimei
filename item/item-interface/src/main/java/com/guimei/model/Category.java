@@ -16,7 +16,7 @@ public class Category implements Serializable {
 	private Long id;
 	private String name;
 	private Long parentId;
-	private Boolean isParent; // 注意isParent生成的getter和setter方法需要手动加上Is
+	private Boolean isParent;
 	private Integer sort;
 	// getter和setter略
 }
