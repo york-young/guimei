@@ -19,7 +19,7 @@ import java.util.List;
  * @Author: York
  * @Date: 2020/5/9 000914:23
  * @Version:1.0
- * @Description: 品牌的业务层代码
+ * @Description: 表服务实现类,品牌的业务层代码
  */
 @Service
 public class BrandServiceImpl implements IBrandService {

@@ -9,7 +9,13 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-@org.apache.ibatis.annotations.Mapper
+/**
+ * @Author: York
+ * @Date: 2020/5/22 0022 20:45
+ * @Version:1.0
+ * @Description: BrandMapper表数据库访问层
+ */
+
 public interface BrandMapper extends Mapper<Brand> {
     /**
      * @Description

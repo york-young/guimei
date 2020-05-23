@@ -17,7 +17,7 @@ import java.util.List;
  * @Author: York
  * @Date: 2020/5/8 000821:56
  * @Version:1.0
- * @Description: 品牌的实现类
+ * @Description: 表服务实现类
  */
 @Service
 public class CategoryServiceImpl implements ICategoryService {
@@ -33,6 +33,7 @@ public class CategoryServiceImpl implements ICategoryService {
      * @param pid
      * @Return: java.util.List<com.guimei.model.Category>
      **/
+    @Override
     public List<Category> queryCategoryByPid(Long pid) throws MyException {
         //创建一个Example对象，并至少传一个实体对象
         Example example = new Example(Category.class);

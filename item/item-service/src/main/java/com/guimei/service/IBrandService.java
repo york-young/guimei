@@ -5,7 +5,12 @@ import com.guimei.model.Brand;
 import com.guimei.parameter.pojo.BrandQueryByPageParameter;
 
 import java.util.List;
-
+/**
+ * @Author: York
+ * @Date: 2020/5/22 0022 20:49
+ * @Version:1.0
+ * @Description: 表服务接口
+ */
 public interface IBrandService {
     /**
      * @Description

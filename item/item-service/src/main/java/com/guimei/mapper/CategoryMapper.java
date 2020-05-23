@@ -6,7 +6,12 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-
+/**
+ * @Author: York
+ * @Date: 2020/5/22 0022 20:46
+ * @Version:1.0
+ * @Description: Category表数据库访问层
+ */
 public interface CategoryMapper extends Mapper<Category> {
 
     /**
