@@ -1,7 +1,7 @@
 package com.guimei.controller;
 
 import com.guimei.common.pojo.PageResult;
-import com.guimei.model.Brand;
+import com.guimei.pojo.Brand;
 import com.guimei.parameter.pojo.BrandQueryByPageParameter;
 import com.guimei.service.IBrandService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,10 @@
 package com.guimei.response;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-24 21:41
- * @Feature: 返回结果
+ * @Author: York
+ * @Date: 2020/5/23 0023 12:01
+ * @Version:1.0
+ * @Description: 定义返回结果
  */
 public class Result<T> {
 

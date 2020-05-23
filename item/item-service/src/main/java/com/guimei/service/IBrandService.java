@@ -1,7 +1,7 @@
 package com.guimei.service;
 
 import com.guimei.common.pojo.PageResult;
-import com.guimei.model.Brand;
+import com.guimei.pojo.Brand;
 import com.guimei.parameter.pojo.BrandQueryByPageParameter;
 
 import java.util.List;

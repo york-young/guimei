@@ -1,4 +1,4 @@
-package com.guimei.model;
+package com.guimei.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

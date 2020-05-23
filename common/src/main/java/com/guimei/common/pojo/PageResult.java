@@ -3,8 +3,10 @@ package com.guimei.common.pojo;
 import java.util.List;
 
 /**
- * @author li
- * @param <T>
+ * @Author: York
+ * @Date: 2020/5/23 0023 11:59
+ * @Version:1.0
+ * @Description: TODO
  */
 public class PageResult<T> {
 

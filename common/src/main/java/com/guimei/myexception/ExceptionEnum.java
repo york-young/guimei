@@ -1,11 +1,12 @@
 package com.guimei.myexception;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-05 16:09
- * @Feature:
+ * @Author: York
+ * @Date: 2020/5/23 0023 11:57
+ * @Version:1.0
+ * @Description: 枚举类定义类型信息
  */
-public enum LyException {
+public enum ExceptionEnum {
     /**
      * 分类信息无法找到
      */

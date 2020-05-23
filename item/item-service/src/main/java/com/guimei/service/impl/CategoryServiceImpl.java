@@ -1,8 +1,8 @@
 package com.guimei.service.impl;
 
 import com.guimei.mapper.CategoryMapper;
-import com.guimei.model.Category;
-import com.guimei.myexception.LyException;
+import com.guimei.pojo.Category;
+import com.guimei.myexception.ExceptionEnum;
 import com.guimei.myexception.MyException;
 import com.guimei.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements ICategoryService {
         example.createCriteria().andEqualTo("parentId",pid);
         List<Category> list = this.categoryMapper.selectByExample(example);
         if (CollectionUtils.isEmpty(list)){
-            throw new MyException(LyException.CATEGORY_NOT_FOUND);
+            throw new MyException(ExceptionEnum.CATEGORY_NOT_FOUND);
         }
         return list;
     }

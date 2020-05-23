@@ -1,6 +1,6 @@
 package com.guimei.controller;
 
-import com.guimei.model.Category;
+import com.guimei.pojo.Category;
 
 import com.guimei.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

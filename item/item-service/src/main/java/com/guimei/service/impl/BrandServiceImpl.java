@@ -4,7 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.guimei.common.pojo.PageResult;
 import com.guimei.mapper.BrandMapper;
-import com.guimei.model.Brand;
+import com.guimei.pojo.Brand;
 import com.guimei.parameter.pojo.BrandQueryByPageParameter;
 import com.guimei.service.IBrandService;
 import org.apache.commons.lang3.StringUtils;

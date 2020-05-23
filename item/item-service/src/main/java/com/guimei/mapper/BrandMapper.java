@@ -1,6 +1,6 @@
 package com.guimei.mapper;
 
-import com.guimei.model.Brand;
+import com.guimei.pojo.Brand;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;

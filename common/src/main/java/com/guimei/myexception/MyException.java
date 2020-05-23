@@ -1,13 +1,14 @@
 package com.guimei.myexception;
 
 /**
- * @Author: 98050
- * @Time: 2018-11-05 16:07
- * @Feature:
+ * @Author: York
+ * @Date: 2020/5/23 0023 11:59
+ * @Version:1.0
+ * @Description: 自定义异常
  */
 public class MyException extends RuntimeException {
 
-    public MyException(LyException exception) {
+    public MyException(ExceptionEnum exception) {
         super(exception.toString());
     }
 }

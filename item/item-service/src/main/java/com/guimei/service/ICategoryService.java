@@ -1,6 +1,6 @@
 package com.guimei.service;
 
-import com.guimei.model.Category;
+import com.guimei.pojo.Category;
 
 import java.util.List;
 

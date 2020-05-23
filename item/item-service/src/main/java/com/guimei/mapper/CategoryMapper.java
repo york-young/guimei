@@ -1,6 +1,6 @@
 package com.guimei.mapper;
 
-import com.guimei.model.Category;
+import com.guimei.pojo.Category;
 import org.apache.ibatis.annotations.*;
 import tk.mybatis.mapper.common.Mapper;
 
