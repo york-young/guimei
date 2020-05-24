@@ -74,8 +74,7 @@ public class CategoryServiceImpl implements ICategoryService {
         this.categoryMapper.insert(category);
         //3.修改父节点
         Category parent = new Category();
-        parent.setId(category.getParentId());
-        parent.setIsParent(true);
+        parent.setId(category.getParentId()).setIsParent(true);
         this.categoryMapper.updateByPrimaryKeySelective(parent);
 
     }
