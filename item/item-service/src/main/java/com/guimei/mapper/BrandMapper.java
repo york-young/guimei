@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import tk.mybatis.mapper.additional.idlist.SelectByIdListMapper;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -15,8 +16,8 @@ import java.util.List;
  * @Version:1.0
  * @Description: BrandMapper表数据库访问层
  */
-
-public interface BrandMapper extends Mapper<Brand> {
+@org.apache.ibatis.annotations.Mapper
+public interface BrandMapper extends Mapper<Brand>,SelectByIdListMapper<Brand,Long> {
     /**
      * @Description
      *             新增品牌的中间表的维护
@@ -49,12 +50,4 @@ public interface BrandMapper extends Mapper<Brand> {
     @Select("SELECT b.* FROM tb_brand b LEFT JOIN tb_category_brand cb ON b.id=cb.brand_id WHERE cb.category_id=#{cid}")
     List<Brand> queryBrandByCategoryId(Long cid);
 
-    /**
-     * @param ids
-     * @Description: 根据BrandId查询商品品牌信息
-     * @Author: York
-     * @Date: 2020/5/15 0015 10:36
-     * @Return: org.springframework.http.ResponseEntity<java.util.List < com.guimei.model.Brand>>
-     **/
-    List<Brand> selectByIdList(List<Long> ids);
 }

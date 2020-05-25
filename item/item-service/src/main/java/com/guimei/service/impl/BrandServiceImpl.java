@@ -160,4 +160,9 @@ public class BrandServiceImpl implements IBrandService {
         //维护中间表
         this.brandMapper.deleteByBrandIdInCategoryBrand(id);
     }
+
+    @Override
+    public Brand queryBrandByBrandId(Long id) {
+        return this.brandMapper.selectByPrimaryKey(id);
+    }
 }

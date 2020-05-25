@@ -18,6 +18,7 @@ import java.io.Serializable;
 @Table(name = "tb_brand")
 public class Brand implements Serializable {
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "select SEQ_ID.nextval from dual")
     private Long id;

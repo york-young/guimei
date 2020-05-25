@@ -3,6 +3,7 @@ package com.guimei.service;
 import com.guimei.common.pojo.PageResult;
 import com.guimei.pojo.Brand;
 import com.guimei.parameter.pojo.BrandQueryByPageParameter;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 /**
@@ -71,4 +72,6 @@ public interface IBrandService {
      * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
      **/
     void deleteBrand(long bid);
+
+    Brand queryBrandByBrandId(Long id);
 }

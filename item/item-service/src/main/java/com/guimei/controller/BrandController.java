@@ -65,6 +65,7 @@ public class BrandController {
      * @param categories
      * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
      **/
+    @PutMapping
     public ResponseEntity<Void> updateBrand(Brand brand, @RequestParam("cids")List<Long> categories){
         this.brandService.updateBrand(brand, categories);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -125,6 +126,14 @@ public class BrandController {
             this.brandService.deleteBrand(Long.parseLong(bid));
         }
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<Brand> queryBrandById(@PathVariable("id")Long id){
+        Brand brand = this.brandService.queryBrandByBrandId(id);
+        if (brand == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(brand);
     }
 
 }

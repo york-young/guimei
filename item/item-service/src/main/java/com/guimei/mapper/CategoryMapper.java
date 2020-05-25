@@ -1,8 +1,12 @@
 package com.guimei.mapper;
 
 import com.guimei.pojo.Category;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import tk.mybatis.mapper.additional.idlist.SelectByIdListMapper;
 import tk.mybatis.mapper.common.Mapper;
+
 
 import java.util.List;
 
@@ -12,7 +16,8 @@ import java.util.List;
  * @Version:1.0
  * @Description: Category表数据库访问层
  */
-public interface CategoryMapper extends Mapper<Category> {
+@org.apache.ibatis.annotations.Mapper
+public interface CategoryMapper extends Mapper<Category>, SelectByIdListMapper<Category,Long> {
 
     /**
      * @Description:

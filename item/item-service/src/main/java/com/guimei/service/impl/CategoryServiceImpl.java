@@ -60,7 +60,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     /**
      * @param category
-     * @Description: 添加数据信息 TODO 为什么这么写
+     * @Description: 添加数据信息
      * @Author: York
      * @Date: 2020/5/18 0018 22:10
      * @Return: org.springframework.http.ResponseEntity<java.lang.Void>
@@ -172,15 +172,18 @@ public class CategoryServiceImpl implements ICategoryService {
 
     /**
      * @param ids
-     * @Description: 查询数据库中最后一条数据
+     * @Description:
      * @Author: York
      * @Date: 2020/5/18 0018 22:14
      * @Return: org.springframework.http.ResponseEntity<java.util.List < com.guimei.model.Category>>
      **/
     @Override
     public List<Category> queryCategoryByIds(List<Long> ids) {
-        List<Category> last =this.categoryMapper.selectLast();
-        return last;
+        List<Category> categoryList =this.categoryMapper.selectByIdList(ids);
+        if (CollectionUtils.isEmpty(categoryList)){
+            throw new MyException(ExceptionEnum.CATEGORY_NOT_FOUND);
+        }
+        return categoryList;
     }
 
     /**
